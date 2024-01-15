@@ -1,14 +1,21 @@
-// App.js
-import React from "react";
-import { ChartGpt } from "./component/ChartGpt";
-import { ContextApi } from "./component/ContextApi";
+import { useContext } from "react";
+import "./App.css";
+import ContextUse from "./ContextBAsic/ContextUse";
+import { ConterContext } from "./ContextBAsic/CounterProvider";
 
 function App() {
+  const counterState = useContext(ConterContext);
+
+  console.log("Context", counterState);
+
   return (
-    <FormContext.Provider>
-      <ChartGpt />
-      <ContextApi />
-    </FormContext.Provider>
+    <div className="App">
+      <h1>Count is {counterState.count}</h1>
+      <ContextUse />
+      <ContextUse />
+      <ContextUse />
+      <ContextUse />
+    </div>
   );
 }
 
